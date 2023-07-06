@@ -1,0 +1,27 @@
+.title{
+  margin-left: 100;
+  color: blue;
+}
+.button-card{
+  float: right;
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.card{
+  flex: 1 0 250px;
+  margin: 5px;
+  margin-top: 50px;
+}
+.footer-button{
+  border: none;
+  text-align: center;
+  display: block;
+}
+

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <header>
+    <div class="row align-center" style="height: 50px; margin-left: 50px;">
+      <h6 style="margin-left: 50px; color: darkblue;" class="col-4">Interview Management</h6>
+      <div class="col-4 ml-5">
+        <p-button label="Add Interviewer" class="p-button-sm"></p-button>
+      </div>
+      <div class="col-2">
+        <div class="input-group w-100 row">
+          <div class="input-group-text col-9">
+            <input class="w-100" type="text" placeholder="Search...." style="border: 0;">
+            <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body class="container mt-5">
+    <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5, 10, 15]"
+      [value]="listInterviewers" (sortFunction)="customSort($event)" [customSort]="true"
+      [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="Name" style="width:20%">Name <p-sortIcon field="Name"></p-sortIcon></th>
+          <th pSortableColumn="JobTitle" style="width:20%">Job title <p-sortIcon field="JobTitle"></p-sortIcon></th>
+          <th pSortableColumn="UpdateBy" style="width:20%">Update By <p-sortIcon field="UpdateBy"></p-sortIcon></th>
+          <th pSortableColumn="ApplyDate" style="width:20%">Apply Date <p-sortIcon field="ApplyDate"></p-sortIcon></th>
+          <th pSortableColumn="Status" style="width:20%">Status <p-sortIcon field="Status"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-interviewer>
+        <tr>
+          <td>{{interviewer.Name}}</td>
+          <td>{{interviewer.JobTitle}}</td>
+          <td>{{interviewer.UpdateBy}}</td>
+          <td>{{interviewer.ApplyDate}}</td>
+          <td *ngIf="interviewer.Status == 'Accept'">
+            <button class="btn btn-success"> {{interviewer.Status}}</button>
+          </td>
+          <td *ngIf="interviewer.Status == 'Cancel'">
+            <button class="btn btn-danger"> {{interviewer.Status}}</button>
+          </td>
+          <td *ngIf="interviewer.Status == 'Pending'">
+            <button class="btn btn-secondary" disabled> {{interviewer.Status}}</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </body>
+</div>
