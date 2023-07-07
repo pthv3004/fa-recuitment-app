@@ -15,11 +15,13 @@ import { InterviewManagementComponent } from './interview-management/interview-m
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
+import { JobDescriptionComponent } from './job-description/job-description.component';
 @NgModule({
   declarations: [
     AppComponent,
     RecuitmentManagementComponent,
-    InterviewManagementComponent
+    InterviewManagementComponent,
+    JobDescriptionComponent
   ],
   imports: [
     BrowserModule,

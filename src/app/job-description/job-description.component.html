@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div class="container">
+    <h4 style="color: darkblue;"> Applied CV Management (JD Detail)</h4>
+    <p-card #header styleClass="mt-3">
+      <div class="row">
+        <div class="col-2">
+          <img src="../../assets/discord_server_icon.b36af1a2.png" class="w-100 ">
+        </div>
+        <div class="col-7">
+          <div class="row">
+            <h5>{{job.JobTitle}} - {{job.CompanyName}}</h5>
+          </div>
+          <div class="row">
+            <h6 style=" font-size: small; margin-top: 15px;">Upload by Trann {{job.TimeOut}}</h6>
+          </div>
+          <div class="row"> <small style=" font-size: x-small; margin-top: 15px;"> {{job.Location}}</small></div>
+        </div>
+        <div class="col">
+          <div class="col .col-sm-3 mt-3">
+            <p-button label="Interviewer Management" [style]="{'width':'100%'}" (click)="goToInterviewer(job)"></p-button>
+          </div>
+          <div class="col .col-sm-3 mt-3">
+            <p-button label="Candidate Management" styleClass="p-button-secondary"
+              [style]="{'width':'100%'}"></p-button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+    <!-- JobDescription-->
+    <div class="row" style="height: 800px;">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="card text-center mt-3 ml-3 w-100">
+            <div class="card-body">
+              <h5 class="card-title">Hồ Sơ Đã Ứng Tuyển:</h5>
+              <h4 class="card-text" style="color: red;">1000</h4>
+              <div class="row">
+                <span class="ml-5">Chờ Duyệt :<span style="color: orange;">10</span> </span>
+                <span class="ml-2">Duyệt : <span style="color: greenyellow;">20</span></span>
+                <span class="ml-2">Loại : <span style="color: red;">970</span></span>
+              </div>
+            </div>
+            <div class="card-body">
+              <p-button label="Phê Duyệt" class="p-button-sm footer-button" [style]="{'width':'100%'}"></p-button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card mt-3 ml-3 w-100">
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center;">Thông Tin Công Việc</h5>
+              <small style="font-weight: bold;">Công Ty:</small> <br />
+              <small style="margin-left: 15px;">● {{job.CompanyName}}</small> <br />
+              <small style="font-weight: bold;">Vị trí:</small> <br />
+              <small style="margin-left: 15px;">● {{job.JobTitle}}</small> <br />
+              <small style="font-weight: bold;">Mức Lương:</small> <br />
+              <small style="margin-left: 15px;">● {{job.Salary}}</small> <br />
+              <small style="font-weight: bold;">Số Lượng:</small> <br />
+              <small style="margin-left: 15px;">● 10</small> <br />
+              <small style="font-weight: bold;">Hạn Ứng Tuyển:</small> <br />
+              <small style="margin-left: 15px;">● {{job.TimeOut}}</small> <br />
+              <small style="font-weight: bold;">Địa chỉ:</small> <br />
+              <small style="margin-left: 15px;">● {{job.Location}}</small> <br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mt-3 ml-3 w-100" style="height: 700px;">
+          <div class="card-body">
+            <h4 class="card-title">Mô tả Công Việc</h4>
+            <small style="margin-left: 15px;">● {{job.JobDescription}}</small> <br />
+            <h4> Yêu Cầu</h4>
+            <small style="margin-left: 15px;">● {{job.JobRequirement}}</small> <br />
+            <h4>Quyền Lợi</h4>
+            <small style="margin-left: 15px;">● {{job.JobDescription}}</small> <br />
+            <h4>Liên hệ</h4>
+            <small style="margin-left: 15px;">● {{job.Contact}}</small> <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- List CV Applied-->
+    <header>
+
+      <div class="row" style="height: 50px;">
+        <div class="col-3">
+          <h6>Danh sách ứng tuyển</h6>
+        </div>
+        <div class="col-6"></div>
+        <div class="col">
+          <div class="input-group w-100">
+            <div class="input-group-text">
+              <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+              <input class="w-100" type="text" placeholder="Tìm Hồ Sơ" style="border: 0;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <p-button label="Duyệt" styleClass="p-button-success"></p-button>
+    <p-button label="Loại" styleClass="p-button-danger ml-2"></p-button>
+    <p-button label="Chưa Đánh Giá" styleClass="p-button-secondary ml-2"></p-button>
+    <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+      [value]="listInterviewers" (sortFunction)="customSort($event)" [customSort]="true"
+      [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width:16%">Name </th>
+          <th style="width:16%">Job title </th>
+          <th style="width:16%">Email</th>
+          <th style="width:16%">Apply Date</th>
+          <th pSortableColumn="Status" style="width:16%">Status <p-sortIcon field="Status"></p-sortIcon></th>
+          <th style="width:16%">Activity</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-interviewer>
+        <tr>
+          <td>{{interviewer.Name}}</td>
+          <td>{{interviewer.JobTitle}}</td>
+          <td>{{interviewer.Email}}</td>
+          <td>{{interviewer.ApplyDate}}</td>
+          <td *ngIf="interviewer.Status == 'Accept'">
+            <button class="btn btn-success"> {{interviewer.Status}}</button>
+          </td>
+          <td *ngIf="interviewer.Status == 'Cancel'">
+            <button class="btn btn-danger"> {{interviewer.Status}}</button>
+          </td>
+          <td *ngIf="interviewer.Status == 'Pending'">
+            <button class="btn btn-secondary" disabled> {{interviewer.Status}}</button>
+          </td>
+          <td>
+            <p-button icon="pi pi-exclamation-circle
+            " styleClass="p-button-primary"></p-button>
+            <p-button icon="pi pi-trash" styleClass="p-button-warning"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</body>
+
+</html>

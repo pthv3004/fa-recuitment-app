@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { JOB } from '../datas/job';
+import { Job } from '../datas/model/job-model';
 import { SortEvent } from 'primeng/api';
 import { Interviewer } from '../datas/model/interviewer-model';
 import { interviewers } from '../datas/interviews';
-import { Job } from '../datas/model/job-model';
-import { JOB } from '../datas/job';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-interview-management',
-  templateUrl: './interview-management.component.html',
-  styleUrls: ['./interview-management.component.css']
+  selector: 'app-job-description',
+  templateUrl: './job-description.component.html',
+  styleUrls: ['./job-description.component.css']
 })
-export class InterviewManagementComponent {
-  listInterviewers!: Interviewer[];
+export class JobDescriptionComponent {
+  public jobDatas = JOB;
   public job!: Job;
-  jobDatas = JOB;
+  listInterviewers!: Interviewer[];
   constructor(
     private route: ActivatedRoute,
-  ){}
-  ngOnInit() {
+  ) { }
+  ngOnInit(): void {
     this.listInterviewers = interviewers;
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     this.getJob();
   }
   getJob(): void {
-    const id = Number(this.route.snapshot.paramMap.get('jobId'));
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.job = this.jobDatas.find(({ JobID }) => JobID === id)
     console.log(this.job);
   }
@@ -39,5 +41,8 @@ export class InterviewManagementComponent {
       else result = value1 < value2 ? -1 : value1 > value2 ? 1 : 0;
       return event.order! * result;
     });
+  }
+  goToInterviewer(job : Job){
+    window.location.href = '/interview-management/' + job.JobID;
   }
 }

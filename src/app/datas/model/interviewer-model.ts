@@ -4,4 +4,5 @@ export interface Interviewer {
   UpdateBy?: string;
   ApplyDate?: Date;
   Status?: string;
+  Email?:string;
 }

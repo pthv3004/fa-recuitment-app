@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ViewChild, OnInit } from '@angular/core';
 import { JOB } from '../datas/job';
-import { Job } from '../datas/job-model';
+import { Job } from '../datas/model/job-model';
 @Component({
   selector: 'app-recuitment-management',
   templateUrl: './recuitment-management.component.html',
@@ -35,8 +35,7 @@ export class RecuitmentManagementComponent implements OnInit {
       this.jobsData = jobs;
       console.log(this.jobsData);
   }
-  //event.first = Index of the first record
-  //event.rows = Number of rows to display in new page
-  //event.page = Index of the new page
-  //event.pageCount = Total number of pages
+  goToDetail(job : Job){
+    window.location.href = '/job-description-detail/' + job.JobID;
+  }
 }

@@ -7,8 +7,8 @@ export const JOB: any[] = [
     TimeOut: new Date("2023-07-27"),
     JobDescription: "Develop a Websit",
     JobRequirement: "4 years of experience",
-    Location: "FPT",
-    Contact: "Etown5 Khu CNC HCM",
+    Location: "Etown3 KCN Q9",
+    Contact: " Khu CNC  Long Thanh My Q9 TP Thu Duc",
   }, {
     JobID: 2,
     JobTitle: "React Developer 2 ",
