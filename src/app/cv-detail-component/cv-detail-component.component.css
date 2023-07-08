@@ -1,0 +1,4 @@
+:host ::ng-deep #info .p-panel  .p-panel-header {
+  background: blue !important;
+  color: white !important;
+}

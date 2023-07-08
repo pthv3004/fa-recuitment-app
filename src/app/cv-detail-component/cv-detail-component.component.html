@@ -1,0 +1,69 @@
+<div class="container">
+  <p-card #header styleClass="mt-3">
+    <div class="row">
+      <div class="col-2">
+        <img src="../../assets/discord_server_icon.b36af1a2.png" class="w-100 ">
+      </div>
+      <div class="col-7">
+        <div class="row mt-5">
+          <h5>{{interviewer.Name}}</h5>
+        </div>
+      </div>
+      <div class="col mt-5">
+        <p-button label="Xem Trực Tiếp" styleClass="p-button-secondary" [style]="{'width':'100%'}"></p-button>
+      </div>
+    </div>
+  </p-card>
+  <!--Body-->
+  <div class="row mt-5">
+    <div class="col-6">
+      <p-panel header="Contact" [toggleable]="true">
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-3" style="font-weight: bold;">Phones</span>
+          <span class="ml-3"> {{contact.Phone}}</span>
+        </div>
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-3" style="font-weight: bold;"> Email</span>
+          <span class="ml-3">{{contact.Email}}</span>
+        </div>
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-3" style="font-weight: bold;"> Facebook</span>
+          <span class="ml-3">{{contact.Facebook}}</span>
+        </div>
+        <div class="row mt-3">
+          <span class="col-1"></span>
+          <span class="col-3" style="font-weight: bold;"> Address</span>
+          <span class="ml-3">{{contact.Address}}</span>
+        </div>
+      </p-panel>
+    </div>
+  <div class="col-6">
+    <p-panel id="info" header="Applied Information">
+      <div class="row">
+        <span class="col-1"></span>
+        <span class="col-4" style="font-weight: bold;">Vị Trí Ứng Tuyển</span>
+        <span class="ml-3">{{interviewer.JobTitle}}</span>
+      </div>
+      <div class="row">
+        <span class="col-1"></span>
+        <span class="col-4" style="font-weight: bold;"> Ngày Ứng Tuyển</span>
+        <span class="ml-3">{{interviewer.ApplyDate}}</span>
+      </div>
+      <div class="row">
+        <span class="col-1"></span>
+        <span class="col-4" style="font-weight: bold;"> Người Phụ Trách</span>
+        <span class="ml-3">{{interviewer.UpdateBy}}</span>
+      </div>
+      <div class="row">
+        <span class="col-1"></span>
+        <span class="col-4" style="font-weight: bold;"> Trạng Thái Đơn Ứng Tuyển</span>
+        <span class="ml-3">
+          <p-dropdown [options]="statusList" [(ngModel)]="selectedStatus"></p-dropdown>
+        </span>
+      </div>
+    </p-panel>
+  </div>
+</div>

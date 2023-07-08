@@ -45,4 +45,7 @@ export class JobDescriptionComponent {
   goToInterviewer(job : Job){
     window.location.href = '/interview-management/' + job.JobID;
   }
+  goToDetail(Id : number){
+    window.location.href = '/cv-detail/' + Id;
+  }
 }

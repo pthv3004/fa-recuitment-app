@@ -16,12 +16,16 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { JobDescriptionComponent } from './job-description/job-description.component';
+import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
+import { PanelModule } from 'primeng/panel';
+
 @NgModule({
   declarations: [
     AppComponent,
     RecuitmentManagementComponent,
     InterviewManagementComponent,
-    JobDescriptionComponent
+    JobDescriptionComponent,
+    CvDetailComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
     ToggleButtonModule,
     DropdownModule,
     TableModule,
+    PanelModule,
     BrowserAnimationsModule
   ],
   providers: [],
