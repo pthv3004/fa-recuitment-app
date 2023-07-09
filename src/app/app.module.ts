@@ -18,6 +18,7 @@ import { TableModule } from 'primeng/table';
 import { JobDescriptionComponent } from './job-description/job-description.component';
 import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
 import { PanelModule } from 'primeng/panel';
+import { CandidateManagementComponent } from './candidate-management/candidate-management.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PanelModule } from 'primeng/panel';
     RecuitmentManagementComponent,
     InterviewManagementComponent,
     JobDescriptionComponent,
-    CvDetailComponentComponent
+    CvDetailComponentComponent,
+    CandidateManagementComponent
   ],
   imports: [
     BrowserModule,
