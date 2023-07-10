@@ -40,4 +40,7 @@ export class CandidateManagementComponent {
       return event.order! * result;
     });
   }
+  goToDetail(id : number){
+    window.location.href = 'candidate-detail/' + id;
+  }
 }

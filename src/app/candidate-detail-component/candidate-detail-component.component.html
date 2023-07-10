@@ -1,0 +1,161 @@
+<div class="container">
+  <header>
+    <h4 style="margin-left: 50px; color: darkblue;">Candidate Management</h4>
+  </header>
+  <div class="card mt-5">
+    <p-tabView>
+      <p-tabPanel header="Thông Tin">
+        <div class="row" style="border-top-left-radius: 25px;">
+          <div class="col-4 d-flex align-items-center" style="background-color: lightblue;">
+            <img class="mx-auto" style=" border-radius: 50%; height: 200px; width: 200px; border: solid blue 1px"
+              src="../../assets/discord_server_icon.b36af1a2.png">
+          </div>
+          <div class="col-8" style="background-color: skyblue;">
+            <h3>{{interviewer.Name}}</h3>
+            <p style="color: blue; font-size: 24px; font-weight: bold; margin-top: 5px;">{{interviewer.JobTitle}}</p>
+            <p style="font-size: 18px; margin-top: 5px;">Email : {{interviewer.Email}}</p>
+            <p style="font-size: 18px; margin-top: 0px;">Phone Number : 0901616161</p>
+            <div class="row">
+              <span class="col-4" style="font-size: 18px;margin-top: 0px; ">Address : TP HCM</span>
+              <span class="col-6"></span>
+              <span class="mb-2" *ngIf="interviewer.Status == 'Accept'">
+                <button class="btn btn-success"> {{interviewer.Status}}</button>
+              </span>
+              <span class="mb-2" *ngIf="interviewer.Status == 'Cancel'">
+                <button class="btn btn-primary"> {{interviewer.Status}}</button>
+              </span>
+              <span class="mb-2" *ngIf="interviewer.Status == 'Pending'">
+                <button class="btn btn-warning"> {{interviewer.Status}}</button>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Lịch Sử Ứng Tuyển">
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Nemo enim
+          ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+          ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+  <p-divider></p-divider>
+  <h5 style="color: darkblue;">OBJECTIVE</h5>
+  <p style="font-size: 18px; margin-top: 5px;"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+    accusantium doloremque laudantium, totam rem
+    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    Nemo enim
+    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+    ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+  <p-divider></p-divider>
+  <div class="row" style="height: 500px;">
+    <div class="col-md-4">
+      <div class=" mt-3 ml-3 w-100">
+        <h5 style="color: darkblue;">EDUCATION</h5>
+        <p-divider></p-divider>
+        <p style="font-size: 18px; margin-top: 5px;"> 1. FPT University</p>
+        <p style="font-size: 18px; margin-top: 5px;"> 2. Huynh Man Dat Highschool</p>
+        <p-divider></p-divider>
+      </div>
+      <div class=" mt-3 ml-3 w-100">
+        <h5 style="color: darkblue;">HORNORS & AWARDS</h5>
+        <p-divider></p-divider>
+        <p style="font-size: 18px; margin-top: 5px;"> 1. Bachelor of Arts in French | Lake Forest College | 2016</p>
+        <p style="font-size: 18px; margin-top: 5px;"> 2. Distinction in Writing | Michigan State University | 2017</p>
+        <p style="font-size: 18px; margin-top: 5px;"> 3. Bachelor of IT in Viet Nam | FPT University | 2023</p>
+        <p-divider></p-divider>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="mt-4 ml-3 w-100" style="height: 440px;">
+        <h5 style="color: darkblue;">ABOUT</h5>
+        <p-divider></p-divider>
+        <p style="font-size: 18px; margin-top: 5px;"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem
+          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Nemo enim
+          ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui
+          ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem
+          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Nemo enim
+          ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui
+          ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+      </div>
+      <p-divider></p-divider>
+    </div>
+  </div>
+  <h5 style="color: darkblue;">SKILLS</h5>
+  <p-divider></p-divider>
+  <p style="font-size: 18px; margin-top: 5px;"> 1. Bachelor of Arts in French | Lake Forest College | 2016</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 2. Distinction in Writing | Michigan State University | 2017</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 3. Bachelor of IT in Viet Nam | FPT University | 2023</p>
+  <p-divider></p-divider>
+  <h5 style="color: darkblue;">CERTIFICATES</h5>
+  <p-divider></p-divider>
+  <p style="font-size: 18px; margin-top: 5px;"> 1. Bachelor of Arts in French | Lake Forest College | 2016</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 2. Distinction in Writing | Michigan State University | 2017</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 3. Bachelor of IT in Viet Nam | FPT University | 2023</p>
+  <p-divider></p-divider>
+  <h5 style="color: darkblue;">EXPERIENCES</h5>
+  <p-divider></p-divider>
+  <p style="font-size: 18px; margin-top: 5px;"> 1. Bachelor of Arts in French | Lake Forest College | 2016</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 2. Distinction in Writing | Michigan State University | 2017</p>
+  <p style="font-size: 18px; margin-top: 5px;"> 3. Bachelor of IT in Viet Nam | FPT University | 2023</p>
+  <p-divider></p-divider>
+  <div class="row">
+    <div class="col-md-5">
+      <div style="height: 200px;">
+        <h5 style="color: darkblue;">HOBBIES OR SOFT SKILLS</h5>
+        <p-divider></p-divider>
+        <p style="font-size: 18px; margin-top: 5px;"> 1. Coding</p>
+        <p style="font-size: 18px; margin-top: 5px;"> 2. FootBall</p>
+        <p style="font-size: 18px; margin-top: 5px;"> 3. Camping</p>
+      </div>
+      <p-divider></p-divider>
+
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+      <div class="mt-4 ml-3 w-100" style="height: 200px;">
+        <h5 style="color: darkblue;">MORE CONTACT</h5>
+        <p-divider></p-divider>
+        <div class="row">
+          <span class="ml-3">
+            <p-button icon="pi pi-facebook" styleClass=" p-button-rounded p-button-secondary"></p-button>
+          </span>
+          <span style="font-size: 18px; margin-top: 5px; margin-left: 10px; "> <a style="color: black;"
+              href="https://www.facebook.com/">https://www.facebook.com/</a></span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-3">
+            <p-button icon="pi pi-facebook" styleClass=" p-button-rounded p-button-secondary"></p-button>
+          </span>
+          <span style="font-size: 18px; margin-top: 5px; margin-left: 10px; "> <a style="color: black;"
+              href="https://www.facebook.com/">https://www.facebook.com/</a></span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-3">
+            <p-button icon="pi pi-facebook" styleClass=" p-button-rounded p-button-secondary"></p-button>
+          </span>
+          <span style="font-size: 18px; margin-top: 5px; margin-left: 10px; "> <a style="color: black;"
+              href="https://www.facebook.com/">https://www.facebook.com/</a></span>
+        </div>
+      </div>
+      <p-divider></p-divider>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: flex-end">
+    <div>
+      <p-button label="Send" icon="pi pi-send" styleClass="p-button-primary mr-2"> </p-button>
+      <p-button label="Delete" icon="pi pi-trash" styleClass="p-button-danger"></p-button>
+    </div>
+  </div>
+</div>
