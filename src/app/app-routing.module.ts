@@ -6,14 +6,18 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
 import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
 import { CandidateManagementComponent } from './candidate-management/candidate-management.component';
 import { CandidateDetailComponentComponent } from './candidate-detail-component/candidate-detail-component.component';
+import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
+import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-component/cv-suggestion-detail-component.component';
 const routes: Routes = [
   { path: 'recuitment-management', component: RecuitmentManagementComponent },
-  { path: '', redirectTo:'/recuitment-management', pathMatch:'full'},
+  { path: '', redirectTo: '/recuitment-management', pathMatch: 'full' },
   { path: 'interview-management/:jobId', component: InterviewManagementComponent },
   { path: 'candidate-management/:jobId', component: CandidateManagementComponent },
-  { path: 'job-description-detail/:id', component: JobDescriptionComponent},
-  { path: 'cv-detail/:id', component: CvDetailComponentComponent},
-  { path: 'candidate-detail/:id', component: CandidateDetailComponentComponent}
+  { path: 'job-description-detail/:id', component: JobDescriptionComponent },
+  { path: 'cv-detail/:id', component: CvDetailComponentComponent },
+  { path: 'candidate-detail/:id', component: CandidateDetailComponentComponent },
+  { path: 'cv-suggestion/:id', component: CvSuggestionComponentComponent },
+  { path: 'cv-suggestion/detail/:id', component: CvSuggestionDetailComponentComponent }
 ];
 
 @NgModule({

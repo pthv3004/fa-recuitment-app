@@ -1,0 +1,8 @@
+:host ::ng-deep  .p-panel  .p-panel-header {
+  background: blue !important;
+  color: white !important;
+}
+:host ::ng-deep  .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+  background: blue !important;
+  color: white !important;
+}

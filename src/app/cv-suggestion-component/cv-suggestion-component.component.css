@@ -1,0 +1,18 @@
+:host ::ng-deep #jobPosition .p-placeholder::before {
+  content: '\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 ';
+  background-image: url('../../assets/jobposition_icon.png');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+:host ::ng-deep #skill .p-placeholder::before {
+  content: '\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 ';
+  background-image: url('../../assets/Skill_iocn.jpg');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+:host ::ng-deep #location .p-placeholder::before {
+  content: '\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 ';
+  background-image: url('../../assets/3586361_location_map_navigation_pointer_icon.png');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}

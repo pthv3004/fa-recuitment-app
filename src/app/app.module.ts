@@ -10,6 +10,7 @@ import { CardModule } from 'primeng/card';
 import { DataViewModule } from 'primeng/dataview';
 import { TabViewModule } from 'primeng/tabview';
 import { DividerModule } from 'primeng/divider';
+import { TagModule } from 'primeng/tag';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginatorModule } from 'primeng/paginator';
 import { InterviewManagementComponent } from './interview-management/interview-management.component';
@@ -19,8 +20,11 @@ import { TableModule } from 'primeng/table';
 import { JobDescriptionComponent } from './job-description/job-description.component';
 import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
 import { PanelModule } from 'primeng/panel';
+import { AccordionModule } from 'primeng/accordion';
 import { CandidateManagementComponent } from './candidate-management/candidate-management.component';
 import { CandidateDetailComponentComponent } from './candidate-detail-component/candidate-detail-component.component';
+import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
+import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-component/cv-suggestion-detail-component.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { CandidateDetailComponentComponent } from './candidate-detail-component/
     JobDescriptionComponent,
     CvDetailComponentComponent,
     CandidateManagementComponent,
-    CandidateDetailComponentComponent
+    CandidateDetailComponentComponent,
+    CvSuggestionComponentComponent,
+    CvSuggestionDetailComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +52,8 @@ import { CandidateDetailComponentComponent } from './candidate-detail-component/
     TableModule,
     PanelModule,
     DividerModule,
+    TagModule,
+    AccordionModule,
     BrowserAnimationsModule
   ],
   providers: [],

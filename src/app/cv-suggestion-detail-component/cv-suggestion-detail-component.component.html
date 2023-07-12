@@ -1,0 +1,146 @@
+<div class="container">
+  <header>
+    <h4 style="margin-left: 50px; color: darkblue;" class="col-4">CV Suggestion Detail</h4>
+  </header>
+  <p-card #header styleClass="mt-3 " [style]="{'background-color': 'lightblue'}">
+    <div class="row">
+      <div class="col-2">
+        <img src="../../assets/discord_server_icon.b36af1a2.png" class="w-100 ">
+      </div>
+      <div class="col-7">
+        <h5>{{interviewer.Name}}</h5>
+        <p style="font-size: 18;"> {{interviewer.JobTitle}}</p>
+
+      </div>
+
+    </div>
+  </p-card>
+  <!--Body-->
+  <div class="row mt-5">
+    <div class="col-6">
+      <p-accordion [activeIndex]="0" [multiple]="true">
+        <p-accordionTab header="Products">
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;">Porfolio</span>
+            <span class="ml-3"><a href="https://www.canva.com/vi_vn/thiet-ke/portfolios/"> Porfolio Link</a> </span>
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;"> Project</span>
+            <span class="ml-3"><a href="https://github.com/"> Project FA</a>,
+              <a href="https://github.com/"> Project FPT</a></span>
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Basic Information">
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;">Date of Birth</span>
+            <span class="ml-3"> 27-07-2023</span>
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;"> Gender</span>
+            <span class="ml-3">Male</span>
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Work Education">
+          <div class="row">
+            <span class="col-1"></span>
+            <div class="col-md-3">
+              <p class="col-3" style="font-weight: bold;">Work</p>
+            </div>
+            <div class="col-md-7">
+              <p class="ml-3"> - Working at NashTech company as a developer
+                - Design Restful API with JAVA (Back-end)- Design UI with Angular II (Front-end)Recognition and Gains:
+                - Improve programming skills : Java and Angular- Have experience working under Scrum model- Have
+                experience working with Jira</p>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <div class="col-md-3">
+              <p class="col-3" style="font-weight: bold;">Educaition</p>
+            </div>
+            <div class="col-md-7">
+              <p class="ml-3"> An enthusiastic, skilled, and reliable web developer seeking a position that reflects my
+                experience, skills, and personal attributes including dedication, meeting goals, creativity, and the
+                ability to follow through. I look forward to learning and experiencing new technologies. I can work well
+                under pressure. I'm not afraid of hard work, I'm just afraid of a boring job.</p>
+            </div>
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <div class="col-md-3">
+              <p class="col-3" style="font-weight: bold;">Skill</p>
+            </div>
+            <div class="col-md-7">
+              <p class="ml-3"> - Java OOP.
+                - Back-End(Java).
+                - HTML.
+                - API design.
+                - Front-end (Vue.js, ReactJS, Angular)
+                - Spring-boot framework, Spring Data JPA, Spring Security
+                - RESTful API
+                - MySQL, SQL Server
+                - Jira
+                - Git</p>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="col-6">
+      <p-panel id="info" header="Applied Information">
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-4" style="font-weight: bold;">Vị Trí Ứng Tuyển</span>
+          <span class="ml-3">{{interviewer.JobTitle}}</span>
+        </div>
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-4" style="font-weight: bold;"> Ngày Ứng Tuyển</span>
+          <span class="ml-3">{{interviewer.ApplyDate}}</span>
+        </div>
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-4" style="font-weight: bold;"> Người Phụ Trách</span>
+          <span class="ml-3">{{interviewer.UpdateBy}}</span>
+        </div>
+        <div class="row">
+          <span class="col-1"></span>
+          <span class="col-4" style="font-weight: bold;"> Trạng Thái Đơn Ứng Tuyển</span>
+          <span class="ml-3">
+            <p-dropdown [options]="statusList" [(ngModel)]="selectedStatus"></p-dropdown>
+          </span>
+        </div>
+      </p-panel>
+      <p-accordion>
+        <p-accordionTab class="mt-3" header="Contact">
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;">Phones</span>
+            <span class="ml-3"> {{contact.Phone}}</span>
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;"> Email</span>
+            <span class="ml-3">{{contact.Email}}</span>
+          </div>
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;"> Facebook</span>
+            <span class="ml-3">{{contact.Facebook}}</span>
+          </div>
+          <div class="row mt-3">
+            <span class="col-1"></span>
+            <span class="col-3" style="font-weight: bold;"> Address</span>
+            <span class="ml-3">{{contact.Address}}</span>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+
+    </div>
+  </div>

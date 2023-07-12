@@ -1,0 +1,88 @@
+<div class="container">
+  <header>
+    <h4 style="margin-left: 50px; color: darkblue;" class="col-4">CV Suggestion</h4>
+  </header>
+  <div class=" mt-3">
+    <p-table #dt1 [value]="listInterviewers" dataKey="id" [rows]="8" [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[8,16]" [paginator]="true" [globalFilterFields]="['jobTitle', 'skill', 'location']">
+      <ng-template pTemplate="caption">
+        <div class="row">
+          <span class="col-3"><p-columnFilter field="JobTitle" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown id='jobPosition' [ngModel]="value" [options]="JobTitleList"
+                  (onChange)="filter($event.value)" placeholder="Job position" [showClear]="true">
+                  <ng-template let-option pTemplate="item">
+                    <span class="ml-1 mt-1">{{ option }}</span>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter></span>
+          <span class="col-3"><p-columnFilter field="Skill" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown id='skill' [ngModel]="value" [options]="SkillList" (onChange)="filter($event.value)"
+                  placeholder="Skill" [showClear]="true">
+
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter></span>
+          <span class="col-3">
+            <p-columnFilter field="Location" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown id='location' [ngModel]="value" [options]="LocationList" (onChange)="filter($event.value)"
+                  placeholder="Location" [showClear]="true">
+
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </span>
+          <span class="p-input-icon-left ml-auto">
+            <div class="input-group-text col-9">
+              <input pInputText class="w-100" type="text" placeholder="Search...." style="border: 0;"
+                (input)="dt1.filterGlobal($any($event.target).value, 'contains')">
+              <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+            </div>
+          </span>
+        </div>
+        <h6 style="color: darkblue;" class="col-4">Danh sách Interviewer</h6>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="Name" style="width:18%">Name <p-sortIcon field="Name"></p-sortIcon></th>
+          <th pSortableColumn="Skill" style="width:18%">Skill <p-sortIcon field="Skill"></p-sortIcon></th>
+          <th pSortableColumn="JobTitle" style="width:18%">Job position <p-sortIcon field="JobTitle"></p-sortIcon></th>
+          <th pSortableColumn="Location" style="width:18%">Location <p-sortIcon field="Location"></p-sortIcon></th>
+          <th pSortableColumn="Status" style="width:15%">Status <p-sortIcon field="Status"></p-sortIcon></th>
+          <th pSortableColumn="Operation" style="width:18%">Operation <p-sortIcon field="Operation"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-interview>
+        <tr>
+          <td>
+            {{ interview.Name }}
+          </td>
+          <td>
+            <span>{{ interview.JobTitle }}</span>
+          </td>
+          <td>
+
+            <span>{{ interview.JobTitle }}</span>
+          </td>
+          <td>
+            VietNam
+          </td>
+          <td>
+            <p-tag [value]="interview.Status" [severity]="getSeverity(interview.Status)"></p-tag>
+          </td>
+          <td>
+            <p-button label="View" icon="pi pi-eye" iconPos="right" (onClick)="goToDetail(interview.Id)"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No customers found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
