@@ -40,4 +40,7 @@ export class InterviewManagementComponent {
       return event.order! * result;
     });
   }
+  goToDetail(){
+    window.location.href ='all-interviewer-management';
+  }
 }

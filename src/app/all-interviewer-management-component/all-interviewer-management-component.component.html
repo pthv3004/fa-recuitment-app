@@ -1,0 +1,50 @@
+<div class="container">
+  <header>
+    <h5 style="margin-left: 50px; color: darkblue; font-weight: bold;">Interviewer Management</h5>
+    <div class="row align-center" style="height: 50px; margin-left: 20px; margin-top: 20px;">
+      <div class="col-6"></div>
+      <div class="col-3">
+        <p-button label="Schedule" styleClass="p-button-sm p-button-secondary"></p-button>
+        <p-button label="Add New" styleClass="p-button-sm ml-3"></p-button>
+      </div>
+      <div class="col-3">
+        <div class="input-group-text">
+          <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+          <input class="w-100" type="text" placeholder="Search Jobs" style="border: 0;">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body>
+    <div class="cards container">
+      <ng-container *ngFor="let interviewer of InterviewerList">
+        <p-card [style]="{ height: '270px' }" class="card">
+          <div class="row">
+            <div class="avartar col-5">
+              <img style="width: 100px; border-radius: 25px;" src="../../assets/discord_server_icon.b36af1a2.png" />
+            </div>
+            <div class="col-6">
+              <h5 style="margin: 0;">{{interviewer.Name}}</h5>
+              <p style="font-size: 18px; margin: 0;">{{interviewer.JobTitle}}</p>
+              <p-tag [value]="interviewer.Status" severity="success"></p-tag>
+            </div>
+          </div>
+          <p-divider></p-divider>
+          <div class="row">
+            <span class="col-1"></span>
+            <span class="col-5">
+              <p-button label="View" icon="pi pi-eye" [style]="{'width':'100%'}"></p-button>
+            </span>
+            <span class="col-5">
+              <p-button label="Add" icon="pi pi-plus" [style]="{'width':'100%'}"></p-button>
+            </span>
+          </div>
+        </p-card>
+      </ng-container>
+      <p-paginator [rows]="9" (onPageChange)="paginate($event)" [totalRecords]="totalInterviewer.length">
+      </p-paginator>
+    </div>
+  </body>
+
+</div>

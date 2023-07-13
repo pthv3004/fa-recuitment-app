@@ -25,6 +25,7 @@ import { CandidateManagementComponent } from './candidate-management/candidate-m
 import { CandidateDetailComponentComponent } from './candidate-detail-component/candidate-detail-component.component';
 import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
 import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-component/cv-suggestion-detail-component.component';
+import { AllInterviewerManagementComponentComponent } from './all-interviewer-management-component/all-interviewer-management-component.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-com
     CandidateManagementComponent,
     CandidateDetailComponentComponent,
     CvSuggestionComponentComponent,
-    CvSuggestionDetailComponentComponent
+    CvSuggestionDetailComponentComponent,
+    AllInterviewerManagementComponentComponent
   ],
   imports: [
     BrowserModule,
