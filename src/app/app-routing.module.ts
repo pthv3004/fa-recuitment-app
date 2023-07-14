@@ -9,6 +9,7 @@ import { CandidateDetailComponentComponent } from './candidate-detail-component/
 import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
 import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-component/cv-suggestion-detail-component.component';
 import { AllInterviewerManagementComponentComponent } from './all-interviewer-management-component/all-interviewer-management-component.component';
+import { InterviewerDetailComponentComponent } from './interviewer-detail-component/interviewer-detail-component.component';
 const routes: Routes = [
   { path: 'recuitment-management', component: RecuitmentManagementComponent },
   { path: '', redirectTo: '/recuitment-management', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'candidate-detail/:id', component: CandidateDetailComponentComponent },
   { path: 'cv-suggestion/:id', component: CvSuggestionComponentComponent },
   { path: 'cv-suggestion/detail/:id', component: CvSuggestionDetailComponentComponent },
-  { path: 'all-interviewer-management', component: AllInterviewerManagementComponentComponent}
+  { path: 'all-interviewer-management', component: AllInterviewerManagementComponentComponent},
+  { path: 'interviewer-detail/:id', component: InterviewerDetailComponentComponent}
 ];
 
 @NgModule({

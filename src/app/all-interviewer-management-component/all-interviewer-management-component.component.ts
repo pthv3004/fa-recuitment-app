@@ -36,7 +36,7 @@ export class AllInterviewerManagementComponentComponent {
       this.InterviewerList = interviews;
       console.log(this.InterviewerList);
   }
-  // goToDetail(job : any){
-  //   window.location.href = '/job-description-detail/' + job.JobID;
-  // }
+  goToInterviewerDetail(interviewerId : any){
+    window.location.href = '/interviewer-detail/' + interviewerId;
+  }
 }

@@ -34,7 +34,7 @@
           <div class="row">
             <span class="col-1"></span>
             <span class="col-5">
-              <p-button label="View" icon="pi pi-eye" [style]="{'width':'100%'}"></p-button>
+              <p-button label="View" icon="pi pi-eye" [style]="{'width':'100%'}" (click)="goToInterviewerDetail(interviewer.Id)"></p-button>
             </span>
             <span class="col-5">
               <p-button label="Add" icon="pi pi-plus" [style]="{'width':'100%'}"></p-button>
