@@ -1,0 +1,135 @@
+<div class="container">
+  <header>
+    <h4 style=" color: darkblue;">Tracking Interview & Result</h4>
+  </header>
+  <div class="row">
+    <p-card class="col-3">
+      <div class="row">
+        <div class="col-7">
+          <p>Next Meeting</p>
+          <p style="font-weight: bold;  font-size: 28px;">{{nextMeetingCount}}</p>
+        </div>
+        <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+          <img style="width: 50px; height: 50px;" src="../../assets/istockphoto-schedule-2048x2048.jpg">
+        </div>
+      </div>
+    </p-card>
+    <p-card class="col-3">
+      <div class="row">
+        <div class="col-7">
+          <p>Candidates</p>
+          <p style="font-weight: bold;  font-size: 28px;">{{interviewerList.length}}</p>
+        </div>
+        <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+          <img style="width: 50px; height: 50px;" src="../../assets/7208668_application_phonebook_contact_icon.png">
+        </div>
+      </div>
+    </p-card>
+    <p-card class="col-3">
+      <div class="row">
+        <div class="col-7">
+          <p>Accept</p>
+          <p style="font-weight: bold;  font-size: 28px;">{{acceptCount}}</p>
+        </div>
+        <div class="col-4" style="display: flex;   align-items: center;   justify-content: center;">
+          <img style="width: 50px; height: 50px;" src="../../assets/9407837_camera_photography_photo_image_icon.png">
+        </div>
+      </div>
+    </p-card>
+    <p-card class="col-3">
+      <div class="row">
+        <div class="col-7">
+          <p>Reject</p>
+          <p style="font-weight: bold; font-size: 28px;">{{rejectCount}}</p>
+        </div>
+        <div class="col-4" style="display: flex;   align-items: center; justify-content: center;">
+          <img style="width: 50px; height: 50px;" src="../../assets/3838423_interface_m_refresh_ui_icon.png">
+        </div>
+      </div>
+    </p-card>
+  </div>
+  <div class="row mt-3" style="  display: flex;
+    justify-content: center;">
+    <button class="btn btn-sm btn-warning mr-2"> ALL</button>
+    <button class="btn btn-sm btn-primary mr-2">Upcoming</button>
+    <button class="btn btn-sm btn-success mr-2">Finish</button>
+    <button class="btn btn-sm btn-danger mr-2">Cancel</button>
+  </div>
+  <!--Body-->
+  <div class="container mt-2">
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-8">
+        <h5>List Of Meeting</h5>
+      </span>
+      <span class="col-4">
+        <div class="input-group-text col-9">
+          <input class="w-100" type="text" placeholder="Global Search" style="border: 0;">
+          <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+        </div>
+      </span>
+    </div>
+    <p-divider></p-divider>
+    <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5, 10]"
+      [value]="scheduleList" (sortFunction)="customSort($event)" [customSort]="true"
+      [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="Id" style="width:10%">Id <p-sortIcon field="Id"></p-sortIcon></th>
+          <th pSortableColumn="Name" style="width:14%">Name <p-sortIcon field="Name"></p-sortIcon></th>
+          <th pSortableColumn="Place" style="width:14%">Place <p-sortIcon field="Place"></p-sortIcon></th>
+          <th pSortableColumn="Date" style="width:14%">Date <p-sortIcon field="Date"></p-sortIcon></th>
+          <th pSortableColumn="Status" style="width:14%">Status <p-sortIcon field="Status"></p-sortIcon></th>
+          <th pSortableColumn="Notion" style="width:14%">Notion <p-sortIcon field="Notion"></p-sortIcon></th>
+          <th pSortableColumn="Action" style="width:20%">Action <p-sortIcon field="Action"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-schedule>
+        <tr>
+          <td>{{schedule.Id}}</td>
+          <td>{{schedule.Name}}</td>
+          <td>{{schedule.Place}}</td>
+          <td>{{schedule.Date}}</td>
+          <td *ngIf="schedule.Status == 'Done'">
+            <button class="btn btn-sm btn-success"> {{schedule.Status}}</button>
+          </td>
+          <td *ngIf="schedule.Status == 'Processing'">
+            <button class="btn btn-sm btn-primary"> {{schedule.Status}}</button>
+          </td>
+          <td *ngIf="schedule.Status == 'Reject'">
+            <button class="btn btn-sm btn-danger"> {{schedule.Status}}</button>
+          </td>
+          <td>{{schedule.Notion}}</td>
+          <td>
+            <button (click)="goToDetail(schedule.Id)" class="btn btn-primary mr-2"> View</button>
+            <button (click)="showFeedbackDialog()" class="btn btn-success mr-2"> Feedback</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-dialog header="Candidate" [(visible)]="feedbackDialogVisible" [style]="{width: '50vw'}">
+    <div class="row">
+      <span class="col-2">
+        <img src="../../assets/discord_server_icon.b36af1a2.png" style="height: 80px; width: 100px;" />
+      </span>
+      <span class="col-8">
+        <p style="font-weight: bold; margin: 0px;">{{interviewer.Name}}</p>
+        <p style="margin: 0px;">{{interviewer.JobTitle}}</p>
+      </span>
+      <span class="col-1 ml-4" style="background-color: green; border-radius: 20px;">
+        <p style="color: white; text-align: center;"> 10</p>
+      </span>
+    </div>
+
+    <div class="card flex justify-content-center mt-3">
+      <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="textFeedback"></textarea>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="feedbackDialogVisible = false" label="Ok"
+        styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>

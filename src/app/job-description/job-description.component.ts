@@ -54,4 +54,7 @@ export class JobDescriptionComponent {
   goToCvSuggestion(job:Job){
     window.location.href = '/cv-suggestion/' + job.JobID;
   }
+  goToInterviewerTracking(job:Job){
+    window.location.href = '/tracking-interview/' + job.JobID;
+  }
 }

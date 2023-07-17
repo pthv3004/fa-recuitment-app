@@ -7,7 +7,8 @@
       [rowsPerPageOptions]="[8,16]" [paginator]="true" [globalFilterFields]="['jobTitle', 'skill', 'location']">
       <ng-template pTemplate="caption">
         <div class="row">
-          <span class="col-3"><p-columnFilter field="JobTitle" matchMode="equals" [showMenu]="false">
+          <span class="col-3">
+            <p-columnFilter field="JobTitle" matchMode="equals" [showMenu]="false">
               <ng-template pTemplate="filter" let-value let-filter="filterCallback">
                 <p-dropdown id='jobPosition' [ngModel]="value" [options]="JobTitleList"
                   (onChange)="filter($event.value)" placeholder="Job position" [showClear]="true">

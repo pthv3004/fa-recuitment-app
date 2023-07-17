@@ -21,12 +21,22 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
 import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
 import { PanelModule } from 'primeng/panel';
 import { AccordionModule } from 'primeng/accordion';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 import { CandidateManagementComponent } from './candidate-management/candidate-management.component';
 import { CandidateDetailComponentComponent } from './candidate-detail-component/candidate-detail-component.component';
 import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
 import { CvSuggestionDetailComponentComponent } from './cv-suggestion-detail-component/cv-suggestion-detail-component.component';
 import { AllInterviewerManagementComponentComponent } from './all-interviewer-management-component/all-interviewer-management-component.component';
 import { InterviewerDetailComponentComponent } from './interviewer-detail-component/interviewer-detail-component.component';
+import { TrackingInterviewComponentComponent } from './tracking-interview-component/tracking-interview-component.component';
+import { InterviewMeetingDetailComponentComponent } from './interview-meeting-detail-component/interview-meeting-detail-component.component';
+import { InterviewResultComponentComponent } from './interview-result-component/interview-result-component.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +50,10 @@ import { InterviewerDetailComponentComponent } from './interviewer-detail-compon
     CvSuggestionComponentComponent,
     CvSuggestionDetailComponentComponent,
     AllInterviewerManagementComponentComponent,
-    InterviewerDetailComponentComponent
+    InterviewerDetailComponentComponent,
+    TrackingInterviewComponentComponent,
+    InterviewMeetingDetailComponentComponent,
+    InterviewResultComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +71,11 @@ import { InterviewerDetailComponentComponent } from './interviewer-detail-compon
     DividerModule,
     TagModule,
     AccordionModule,
+    ProgressBarModule,
+    DialogModule,
+    InputTextModule,
+    InputTextareaModule,
+    CKEditorModule,
     BrowserAnimationsModule
   ],
   providers: [],

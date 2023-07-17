@@ -20,15 +20,16 @@
         </div>
         <div class="col">
           <div class="col .col-sm-3 mt-3">
-            <p-button label="Interviewer Management" [style]="{'width':'100%'}" (click)="goToInterviewer(job)"></p-button>
+            <p-button label="Interviewer Management" [style]="{'width':'100%'}"
+              (click)="goToInterviewer(job)"></p-button>
           </div>
           <div class="col .col-sm-3 mt-3">
-            <p-button label="Candidate Management" styleClass="p-button-secondary"
-              [style]="{'width':'100%'}" (click)="goToCandidate(job)"></p-button>
+            <p-button label="Candidate Management" styleClass="p-button-secondary" [style]="{'width':'100%'}"
+              (click)="goToCandidate(job)"></p-button>
           </div>
           <div class="col .col-sm-3 mt-3">
-            <p-button label="CV Suggestion" styleClass="p-button-secondary"
-              [style]="{'width':'100%'}" (click)="goToCvSuggestion(job)"></p-button>
+            <p-button label="CV Suggestion" styleClass="p-button-secondary" [style]="{'width':'100%'}"
+              (click)="goToCvSuggestion(job)"></p-button>
           </div>
         </div>
       </div>
@@ -102,50 +103,55 @@
               <input class="w-100" type="text" placeholder="Tìm Hồ Sơ" style="border: 0;">
             </div>
           </div>
+          <p-button label="Interviewer Tracking"
+          styleClass="mt-2"
+          [style]="{'width':'100%'}"
+            (click)="goToInterviewerTracking(job)"></p-button>
         </div>
       </div>
     </header>
     <p-button label="Duyệt" styleClass="p-button-success"></p-button>
     <p-button label="Loại" styleClass="p-button-danger ml-2"></p-button>
     <p-button label="Chưa Đánh Giá" styleClass="p-button-secondary ml-2"></p-button>
-    <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
-      [value]="listInterviewers" (sortFunction)="customSort($event)" [customSort]="true"
-      [tableStyle]="{'min-width': '60rem'}">
-      <ng-template pTemplate="header">
-        <tr>
-          <th style="width:16%">Name </th>
-          <th style="width:16%">Job title </th>
-          <th style="width:16%">Email</th>
-          <th style="width:16%">Apply Date</th>
-          <th pSortableColumn="Status" style="width:16%">Status <p-sortIcon field="Status"></p-sortIcon></th>
-          <th style="width:16%">Activity</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-interviewer>
-        <tr>
-          <td>{{interviewer.Name}}</td>
-          <td>{{interviewer.JobTitle}}</td>
-          <td>{{interviewer.Email}}</td>
-          <td>{{interviewer.ApplyDate}}</td>
-          <td *ngIf="interviewer.Status == 'Accept'">
-            <button class="btn btn-success"> {{interviewer.Status}}</button>
-          </td>
-          <td *ngIf="interviewer.Status == 'Cancel'">
-            <button class="btn btn-danger"> {{interviewer.Status}}</button>
-          </td>
-          <td *ngIf="interviewer.Status == 'Pending'">
-            <button class="btn btn-secondary" disabled> {{interviewer.Status}}</button>
-          </td>
-          <td>
-            <p-button
-            (click)="goToDetail(interviewer.Id)"
-            icon="pi pi-exclamation-circle
+    <div class=" mt-4">
+      <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }"
+        [value]="listInterviewers" (sortFunction)="customSort($event)" [customSort]="true"
+        [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width:16%">Name </th>
+            <th style="width:16%">Job title </th>
+            <th style="width:16%">Email</th>
+            <th style="width:16%">Apply Date</th>
+            <th pSortableColumn="Status" style="width:16%">Status <p-sortIcon field="Status"></p-sortIcon></th>
+            <th style="width:16%">Activity</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-interviewer>
+          <tr>
+            <td>{{interviewer.Name}}</td>
+            <td>{{interviewer.JobTitle}}</td>
+            <td>{{interviewer.Email}}</td>
+            <td>{{interviewer.ApplyDate}}</td>
+            <td *ngIf="interviewer.Status == 'Accept'">
+              <button class="btn btn-success"> {{interviewer.Status}}</button>
+            </td>
+            <td *ngIf="interviewer.Status == 'Cancel'">
+              <button class="btn btn-danger"> {{interviewer.Status}}</button>
+            </td>
+            <td *ngIf="interviewer.Status == 'Pending'">
+              <button class="btn btn-secondary" disabled> {{interviewer.Status}}</button>
+            </td>
+            <td>
+              <p-button (click)="goToDetail(interviewer.Id)" icon="pi pi-exclamation-circle
             " styleClass="p-button-primary"></p-button>
-            <p-button icon="pi pi-trash" styleClass="p-button-warning"></p-button>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+              <p-button icon="pi pi-trash" styleClass="p-button-warning"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
   </div>
 </body>
 

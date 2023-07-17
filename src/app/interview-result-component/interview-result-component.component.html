@@ -1,0 +1,92 @@
+<div class="container">
+  <h4 style="margin-left: 50px; color: darkblue;">Candidate Management</h4>
+  <div class="row mt-5">
+    <div class="ml-5 col-md-4">
+      <p-button label="Send Result Email" (click)="showEmailDialog()" icon="pi pi-envelope"
+        styleClass="p-button-danger"></p-button>
+    </div>
+    <div class="col-md-4 ml-auto d-flex justify-content-end">
+      <p-button label="Export" styleClass="p-button-success"></p-button>
+    </div>
+  </div>
+
+  <p-table #dt1 [value]="listInterviewers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,20]" [paginator]="true" styleClass="mt-3">
+    <ng-template pTemplate="caption">
+      <div class="row">
+        <span class="col-8 mt-2" style="margin: 0 auto;">
+          <h6 style="color: darkblue;" class="col-4">List of Candidate</h6>
+        </span>
+        <span class="p-input-icon-left ml-auto d-flex justify-content-end ">
+          <div class="input-group-text">
+            <input pInputText class="w-100" type="text" placeholder="Search...." style="border: 0;"
+              (input)="dt1.filterGlobal($any($event.target).value, 'contains')">
+            <p-button icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text"></p-button>
+          </div>
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:18%">Name </th>
+        <th style="width:18%">Point </th>
+        <th style="width:18%">Date </th>
+        <th style="width:18%">Status </th>
+        <th style="width:15%">Phone </th>
+        <th style="width:18%">Email </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-interview>
+      <tr>
+        <td>
+          {{ interview.Name }}
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          {{ interview.ApplyDate }}
+        </td>
+        <td>
+          <p-tag [value]="interview.Status" [severity]="getSeverity(interview.Status)"></p-tag>
+        </td>
+        <td>
+          09031646464
+        </td>
+        <td>
+          {{interview.Email}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+      <span style="font-weight: bolder;">New Email</span>
+    </ng-template>
+    <div class="row">
+      <span class="col-2">To:</span>
+      <span class="col-10"> <input  class="w-100" pInputText type="email" placeholder="Email" [(ngModel)]="receiver" /></span>
+    </div>
+    <div class="row mt-2">
+      <span class="col-2">Subject:</span>
+      <span class="col-10"> <input class="w-100" pInputText placeholder="Subject" [(ngModel)]="subject" /></span>
+    </div>
+    <div class="mt-3">
+      <ckeditor
+      [(ngModel)]="editorData"
+      [editor]="Editor"
+      id="classic-editor"
+      name="classic-editor"
+      (ready)="onReady($event)"
+      (change)="onChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    >
+    </ckeditor>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-button  (click)="sendEmail(receiver, subject,editorData)" label="Send" styleClass="p-button-primary"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>

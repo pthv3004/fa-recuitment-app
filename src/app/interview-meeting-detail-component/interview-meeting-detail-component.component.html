@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="header row">
+    <span class="col-7">
+      <h4 style="color: darkblue;"> Interview Meeting Detail</h4>
+      <p style="font-size: 14px; margin: 0;"> Detail of interview meeting</p>
+    </span>
+    <span class="col-3"></span>
+    <span style="margin-top: 28px;">
+      <p-button (click)="interviewResult(schedule.Id)" label="Lịch Sử Phỏng Vấn" styleClass="p-button-secondary"></p-button>
+    </span>
+  </div>
+  <div class="body mt-5">
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">ID</span>
+      <span> {{schedule.Id}}</span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Name</span>
+      <span>{{schedule.Name}}</span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Place</span>
+      <span>{{schedule.Place}}</span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Date</span>
+      <span>{{schedule.Date}}</span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Status</span>
+      <span> <p-tag [value]="schedule.Status" [severity]="getSeverity(schedule.Status)"></p-tag></span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Progress</span>
+      <span class="col-4"> <p-progressBar [value]="50"></p-progressBar></span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Interviewers</span>
+      <span>
+        <p-tag class="ml-2" *ngFor="let interviewer of interviewerList" [value]="interviewer.Name" severity="primary"></p-tag>
+      </span>
+    </div>
+    <p-divider></p-divider>
+
+  </div>
+  <div class="d-flex">
+    <span class="col-11"></span>
+    <p-button icon="pi pi-pencil" (click)="showEditDialog()" styleClass=" p-button-outlined" label="Edit"></p-button>
+  </div>
+
+  <p-dialog header="Edit schedule" [(visible)]="editDialogVisible" [style]="{width: '50vw'}">
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">ID</span>
+      <span> {{schedule.Id}}</span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Name</span>
+      <input type="text" pInputText [(ngModel)]="schedule.Name" />
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Place</span>
+      <input type="text" pInputText [(ngModel)]="schedule.Place" />
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Date</span>
+      <input type="text" pInputText [(ngModel)]="schedule.Date" />
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Status</span>
+      <span> <p-tag [value]="schedule.Status" [severity]="getSeverity(schedule.Status)"></p-tag></span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Progress</span>
+      <span class="col-4"> <p-progressBar [value]="50"></p-progressBar></span>
+    </div>
+    <p-divider></p-divider>
+    <div class="row">
+      <span class="col-4" style="font-weight: bolder;">Interviewers</span>
+      <span>
+        <p-tag class="ml-2" *ngFor="let interviewer of interviewerList" [value]="interviewer.Name" severity="primary"></p-tag>
+      </span>
+    </div>
+    <p-divider></p-divider>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="editDialogVisible = false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+</div>
