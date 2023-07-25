@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { JOB } from '../datas/job';
 import { Job } from '../datas/model/job-model';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 @Component({
   selector: 'app-recuitment-management',
   templateUrl: './recuitment-management.component.html',
@@ -15,7 +14,6 @@ export class RecuitmentManagementComponent implements OnInit {
   editDialogVisible: boolean = false;
   // data of diaglog
   public newJob!: Job;
-  public Editor = ClassicEditor;
   editData!: Job;
 
   //data of new Job:
@@ -35,7 +33,7 @@ export class RecuitmentManagementComponent implements OnInit {
   ngOnInit() {
     this.editData = {
       JobID: 0,
-      JobTitle: " ",
+      JobTitle: "",
       Salary: 0,
       CompanyName: "",
       TimeOut: new Date("2023-07-27"),
@@ -83,6 +81,7 @@ export class RecuitmentManagementComponent implements OnInit {
   }
   updateJob(editData: any) {
     console.log(editData);
+
     this.editDialogVisible = false;
   }
 }

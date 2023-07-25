@@ -72,17 +72,7 @@
       <span class="col-10"> <input class="w-100" pInputText placeholder="Subject" [(ngModel)]="subject" /></span>
     </div>
     <div class="mt-3">
-      <ckeditor
-      [(ngModel)]="editorData"
-      [editor]="Editor"
-      id="classic-editor"
-      name="classic-editor"
-      (ready)="onReady($event)"
-      (change)="onChange($event)"
-      (focus)="onFocus($event)"
-      (blur)="onBlur($event)"
-    >
-    </ckeditor>
+      <p-editor [(ngModel)]="editorData" [style]="{ height: '320px' }"></p-editor>
     </div>
 
     <ng-template pTemplate="footer">

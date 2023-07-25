@@ -17,6 +17,7 @@ import { InterviewManagementComponent } from './interview-management/interview-m
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
+import { EditorModule } from 'primeng/editor';
 import { JobDescriptionComponent } from './job-description/job-description.component';
 import { CvDetailComponentComponent } from './cv-detail-component/cv-detail-component.component';
 import { PanelModule } from 'primeng/panel';
@@ -25,9 +26,6 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
 import { CandidateManagementComponent } from './candidate-management/candidate-management.component';
 import { CandidateDetailComponentComponent } from './candidate-detail-component/candidate-detail-component.component';
 import { CvSuggestionComponentComponent } from './cv-suggestion-component/cv-suggestion-component.component';
@@ -75,7 +73,7 @@ import { InterviewResultComponentComponent } from './interview-result-component/
     DialogModule,
     InputTextModule,
     InputTextareaModule,
-    CKEditorModule,
+    EditorModule,
     BrowserAnimationsModule
   ],
   providers: [],

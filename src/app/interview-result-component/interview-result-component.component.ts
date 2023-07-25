@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { interviewers } from '../datas/interviews';
-import { BlurEvent, ChangeEvent, FocusEvent } from '@ckeditor/ckeditor5-angular';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 @Component({
   selector: 'app-interview-result-component',
   templateUrl: './interview-result-component.component.html',
@@ -12,7 +10,6 @@ export class InterviewResultComponentComponent {
   listInterviewers = interviewers;
   public componentEvents: string[] = [];
   public editorData!:string;
-  public Editor = ClassicEditor;
   receiver!: string;
   subject!: string;
   visible = false;
@@ -44,18 +41,6 @@ export class InterviewResultComponentComponent {
     this.visible = true;
   }
 
-  onReady(event: any): void {
-  }
-  onChange(event: ChangeEvent): void {
-    // this.editorData = event.editor.data.get();
-    // console.log(event.editor.data.get());
-  }
-
-  onFocus(event: FocusEvent): void {
-  }
-
-  onBlur(event: BlurEvent): void {
-  }
   sendEmail(receiver: any,subject: any,editorData: any){
     console.log(receiver,subject,editorData)
     this.visible = false;

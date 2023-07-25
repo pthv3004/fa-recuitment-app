@@ -66,8 +66,9 @@
   <p style="margin: 0px;">Yêu Cầu</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="newJobRequirement" />
   <p style="margin: 0px;">Mô tả công việc</p>
-  <ckeditor [(ngModel)]="newJobDescription" [editor]="Editor" id="classic-editor" name="classic-editor">
-  </ckeditor>
+  <div class="card">
+    <p-editor [(ngModel)]="newJobDescription" [style]="{ height: '320px' }"></p-editor>
+  </div>
   <p style="margin: 0px;">Kinh Nghiệm</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="newExperience" />
   <p style="margin: 0px;">Thời hạn ứng tuyển</p>
@@ -79,13 +80,13 @@
   <p style="margin: 0px;">Địa Chỉ làm việc</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="newLocation" />
   <p style="margin: 0px;">Liên hệ</p>
-  <input  style="width: 100%;" type="text" pInputText [(ngModel)]="newContact" />
+  <input style="width: 100%;" type="text" pInputText [(ngModel)]="newContact" />
   <div class="d-flex justify-content-end">
     <p-button icon="pi pi-folder" (click)="createNewJob()" label="Create" styleClass="p-button-text"></p-button>
   </div>
 </p-dialog>
 <!-- update diaglog -->
-<p-dialog header="Header"  [(visible)]="editDialogVisible" [style]="{ width: '500px' }">
+<p-dialog header="Header" [(visible)]="editDialogVisible" [style]="{ width: '500px' }">
   <ng-template pTemplate="header">
     <span style="font-weight: bolder;">Đăng Tin Tuyển Dụng</span>
   </ng-template>
@@ -96,8 +97,10 @@
   <p style="margin: 0px;">Yêu Cầu</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="editData.JobRequirement" />
   <p style="margin: 0px;">Mô tả công việc</p>
-  <ckeditor [(ngModel)]="editData.JobDescription" [editor]="Editor" id="classic-editor" name="classic-editor">
-  </ckeditor>
+  <div class="card">
+    <p-editor [(ngModel)]="editData.JobDescription" [style]="{ height: '320px' }"></p-editor>
+
+  </div>
   <p style="margin: 0px;">Kinh Nghiệm</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="newExperience" />
   <p style="margin: 0px;">Thời hạn ứng tuyển</p>
@@ -109,7 +112,7 @@
   <p style="margin: 0px;">Địa Chỉ làm việc</p>
   <input style="width: 100%;" type="text" pInputText [(ngModel)]="editData.Location" />
   <p style="margin: 0px;">Liên hệ</p>
-  <input  style="width: 100%;" type="text" pInputText [(ngModel)]="editData.Contact" />
+  <input style="width: 100%;" type="text" pInputText [(ngModel)]="editData.Contact" />
   <div class="d-flex justify-content-end">
     <p-button icon="pi pi-folder" (click)="updateJob(editData)" label="Update" styleClass="p-button-text"></p-button>
   </div>
